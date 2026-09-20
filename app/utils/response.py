@@ -117,9 +117,10 @@ def process_token(uid, password):
         )
         if response.status_code == 200:
             # Try to decrypt the Protobuf response
+            # The server response contains a 64-byte header before the protobuf data
             example_msg = output_pb2.Lokesh()
             try:
-                example_msg.ParseFromString(response.content)
+                example_msg.ParseFromString(response.content[64:])
                 # Parse the response to extract key fields
                 response_dict = parse_response(str(example_msg))
                 return {
