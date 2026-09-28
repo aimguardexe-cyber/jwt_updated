@@ -7,7 +7,7 @@ import datetime
 import uuid
 from app.utils.device_data import get_random_profile
 
-# Global session for connection pooling/keep-alive
+# Global session for connection pooling
 session = requests.Session()
 
 
