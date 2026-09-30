@@ -24,7 +24,7 @@ def home():
 @app.route("/token", methods=["GET"])
 def get_responses():
     uid = request.args.get("uid")
-    password = request.args.get("pass")
+    password = request.args.get("password")
 
     if uid and password:
         # Generate a unique cache key per request using a timestamp
